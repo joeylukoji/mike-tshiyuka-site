@@ -1,43 +1,15 @@
 const express = require('express');
 const path = require('path');
-const compression = require('compression');
-const cors = require('cors');
-const helmet = require('helmet');
 const app = express();
 
-// Amélioration de la sécurité avec helmet
-app.use(helmet({
-    contentSecurityPolicy: {
-        directives: {
-            defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'"],
-            styleSrc: ["'self'", "'unsafe-inline'"],
-            imgSrc: ["'self'", "data:"],
-            connectSrc: ["'self'"],
-            fontSrc: ["'self'"],
-            objectSrc: ["'none'"],
-            mediaSrc: ["'self'"],
-            frameSrc: ["'none'"],
-        },
-    },
-    crossOriginEmbedderPolicy: false,
-}));
+// Servir les fichiers statiques depuis le répertoire racine
+app.use(express.static(__dirname));
 
-// Activation de la compression pour améliorer les performances
-app.use(compression());
-
-// Activation de CORS
-app.use(cors());
-
-// Définir les dossiers des fichiers statiques avec priorité
-app.use(express.static(path.join(__dirname), {
-    maxAge: '1d',
-    etag: true
-}));
-app.use('/assets', express.static(path.join(__dirname, 'assets'), {
-    maxAge: '7d',
-    etag: true
-}));
+// Middleware pour les en-têtes CORS simples
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 // Route pour la page d'accueil et toutes les autres routes
 app.get('/*', (req, res) => {
