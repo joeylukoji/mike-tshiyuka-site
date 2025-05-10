@@ -1,0 +1,101 @@
+.border-blue-600 {
+    border-color: #64B5F6;
+}
+
+.ring-blue-600 {
+    --tw-ring-color: #64B5F6;
+}
+
+.border-blue-100 {
+    border-color: #E3F2FD;
+}
+
+.ring-blue-100 {
+    --tw-ring-color: #E3F2FD;
+}
+
+/* Style pour l'en-tête */
+.h-40 {
+    height: 12rem !important; /* 192px, plus grand que 10rem par défaut */
+    background: linear-gradient(135deg, #0D47A1, #1565C0);
+    position: relative;
+}
+
+/* Style pour assurer que la photo de profil est visible */
+.-mt-16 {
+    position: relative;
+    z-index: 10;
+}
+
+
+
+
+.header-with-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.logo-basyk {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.3rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+    background: white;
+    object-fit: contain;
+}
+
+.ring-2 {
+    --tw-ring-color: #64B5F6;
+}
+
+/* Style pour les boutons sociaux */
+.social-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.social-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+.social-button:hover::before {
+    opacity: 0.2;
+}
+
+/* Instagram */
+.instagram-button::before {
+    background: radial-gradient(circle at 50% 50%, #E1306C, #C13584);
+}
+
+/* WhatsApp */
+.whatsapp-button::before {
+    background: radial-gradient(circle at 50% 50%, #25D366, #25D366);
+}
+
+/* Twitter/X */
+.twitter-button::before {
+    background: radial-gradient(circle at 50% 50%, #1DA1F2, #1DA1F2);
+}
+
+/* Snapchat */
+.snapchat-button::before {
+    background: radial-gradient(circle at 50% 50%, #FFFC00, #FFFC00);
+}
+
+/* Email */
+.email-button::before {
+    background: radial-gradient(circle at 50% 50%, #4CAF50, #4CAF50);
+}
